@@ -29,7 +29,7 @@ optional arguments:
     example usage:
 
     # log a message on the command line
-    $ sinklog -k <logkey> "my log message"
+    $ sinklog -k <log key> "my log message"
 
     # log from stdin
     $ tail -f /var/log/myapp.log | sinklog -k <log key>
