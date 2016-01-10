@@ -43,7 +43,7 @@ Any Python script or app:
 
 ```python
 import logging
-from sinklog_handler import SinklogHandler
+from sinklog import SinklogHandler
 
 sinklog = SinklogHandler(logkey="<log key>")
 logger = logging.getLogger()
@@ -51,7 +51,7 @@ logger.setLevel(logging.INFO)
 logger.addHandler(sinklog)
 
 # Just use the logger as you would normally and log
-# messages will be forwarded to your sinklog stream.
+# messages will be forwarded to your Sinklog stream.
 logger.info("Hello Sinklog!")
 ```
 
@@ -62,7 +62,7 @@ Add `SinklogHandler` to your Django logging config:
 'handlers': {
     'sinklog': {
         'level': "DEBUG",
-        'class': "sinklog_handler.SinklogHandler",
+        'class': "sinklog.SinklogHandler",
         'logkey': "<log key>"
     }
 },
@@ -79,7 +79,7 @@ Add `SinklogHandler` to your Django logging config:
 Add `SinklogHandler` to Flask's root app logger:
 
 ```python
-from sinklog_handler import SinklogHandler
+from sinklog import SinklogHandler
 
 sinklog = SinklogHandler(logkey="<log key>")
 app.logger.addHandler(sinklog)
