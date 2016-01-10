@@ -45,7 +45,7 @@ def main():
         "--tee", "-t", action="store_true",
         help="when reading from stdin, copy to stdout")
     parser.add_argument(
-        "message", nargs="?", help="messages to log")
+        "message", nargs="?", help="message to log")
     args = parser.parse_args()
 
     logger = logging.getLogger("sinklog")
