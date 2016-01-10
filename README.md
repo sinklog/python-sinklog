@@ -1,8 +1,39 @@
-# sinklog-handler
-Logging handler for Sinklog.com
+# Python Sinklog
+Logging handler and CLI for Sinklog.com
 
 ## Usage
 Obtain a log key from https://sinklog.com/
+
+### CLI
+```bash
+usage: sinklog [-h] --key KEY [--host HOST] [--port PORT] [--format FORMAT]
+               [--level {WARN,INFO,DEBUG,ERROR}] [--tee]
+               [message]
+
+a simple logger for sinklog.com
+
+positional arguments:
+  message               messages to log
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --key KEY, -k KEY     sinklog.com log key
+  --host HOST, -H HOST  syslog host
+  --port PORT, -P PORT  syslog port
+  --format FORMAT, -F FORMAT
+                        Python log format
+  --level {WARN,INFO,DEBUG,ERROR}, -l {WARN,INFO,DEBUG,ERROR}
+                        Python log level
+  --tee, -t             when reading from stdin also write input to stdout
+
+    example usage:
+
+    # log a message on the command line
+    $ sinklog -k <logkey> "my log message"
+
+    # log from stdin
+    $ tail -f /var/log/myapp.log | sinklog -k <logkey>
+```
 
 ### Python
 Any Python script or app:
