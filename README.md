@@ -1,6 +1,11 @@
 # Python Sinklog
 Logging handler and CLI for Sinklog.com
 
+## Install
+```bash
+$ pip install python-sinklog
+```
+
 ## Usage
 Obtain a log key from https://sinklog.com/
 
