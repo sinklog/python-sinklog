@@ -13,7 +13,10 @@ USAGE = """
     $ sinklog -k <logkey> "my log message"
 
     # log from stdin
-    $ tail -f /var/log/myapp.log | sinklog -k <logkey>
+    $ tail -f /var/log/myapp.log | sinklog -k <log key>
+
+    # usage in a pipeline
+    $ tail -f /var/log/myapp.log | sinklog -k <log key> --tee | grep foo
 """
 
 LEVELS = {
@@ -27,20 +30,20 @@ LEVELS = {
 def main():
     parser = argparse.ArgumentParser(
         "sinklog", formatter_class=argparse.RawDescriptionHelpFormatter,
-        description="a simple logger for sinklog.com", epilog=USAGE)
+        description="A simple logger for sinklog.com", epilog=USAGE)
     parser.add_argument(
-        "--key", "-k", required=True, help="sinklog.com log key")
+        "--key", "-k", required=True, help="Sinklog.com log key")
     parser.add_argument(
-        "--host", "-H", default=SinklogHandler.DEFAULT_HOST, help="syslog host")
+        "--host", "-H", default=SinklogHandler.DEFAULT_HOST, help="Sinklog host")
     parser.add_argument(
-        "--port", "-P", default=SinklogHandler.DEFAULT_PORT, type=int, help="syslog port")
+        "--port", "-P", default=SinklogHandler.DEFAULT_PORT, type=int, help="Sinklog port")
     parser.add_argument(
         "--format", "-F", default="%(message)s", help="Python log format")
     parser.add_argument(
         "--level", "-l", default="INFO", choices=LEVELS.keys(), help="Python log level")
     parser.add_argument(
         "--tee", "-t", action="store_true",
-        help="when reading from stdin also write input to stdout")
+        help="when reading from stdin, copy to stdout")
     parser.add_argument(
         "message", nargs="?", help="messages to log")
     args = parser.parse_args()
