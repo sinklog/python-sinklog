@@ -3,7 +3,7 @@
 import sys
 import argparse
 import logging
-from handler import SinklogHandler
+from sinklog import SinklogHandler
 
 
 USAGE = """
