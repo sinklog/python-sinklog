@@ -50,7 +50,7 @@ Any Python script or app:
 import logging
 from sinklog import SinklogHandler
 
-sinklog = SinklogHandler(logkey="<log key>")
+sinklog = SinklogHandler(logkey="<log key>", transport="tls")
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 logger.addHandler(sinklog)
@@ -68,7 +68,8 @@ Add `SinklogHandler` to your Django logging config:
     'sinklog': {
         'level': "DEBUG",
         'class': "sinklog.SinklogHandler",
-        'logkey': "<log key>"
+        'logkey': "<log key>",
+        'transport': "tls"
     }
 },
 'loggers': {
@@ -86,6 +87,6 @@ Add `SinklogHandler` to Flask's root app logger:
 ```python
 from sinklog import SinklogHandler
 
-sinklog = SinklogHandler(logkey="<log key>")
+sinklog = SinklogHandler(logkey="<log key>", transport="tcp")
 app.logger.addHandler(sinklog)
 ```

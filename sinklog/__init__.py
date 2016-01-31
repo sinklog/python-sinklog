@@ -1,1 +1,1 @@
-from .handler import SinklogHandler
+from .handler import *
