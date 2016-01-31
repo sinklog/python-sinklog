@@ -6,7 +6,7 @@ long_description = open(os.path.join(HERE, 'README.md')).read()
 
 setup(
     name='python-sinklog',
-    version="1.0",
+    version="1.1",
     packages=find_packages(),
     include_package_data=True,
 
